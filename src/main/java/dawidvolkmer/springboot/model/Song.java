@@ -11,7 +11,7 @@ public class Song {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
-    private String genere;
+    private String genre;
     private String ismn;
     private String year;
 
@@ -20,9 +20,24 @@ public class Song {
     @ManyToMany
     private Set<Artist> artists = new HashSet<>();
 
+    public Song() {
 
+    }
+    public Song(String title, String genre, String ismn, String year) {
+        this.title = title;
+        this.genre = genre;
+        this.ismn = ismn;
+        this.year = year;
 
-    public Song() { }
+    }
+    public Song(String title, String genre, String ismn, String year, Set<Artist> artists) {
+        this.title = title;
+        this.genre = genre;
+        this.ismn = ismn;
+        this.year = year;
+        this.artists = artists;
+    }
+
 
 
     public Long getId() { return id; }
@@ -35,8 +50,8 @@ public class Song {
     public void setArtists(Set<Artist> artists) { this.artists = artists; }
 
 
-    public Song(String genere) {
-        this.genere = genere;
+    public Song(String genre) {
+        this.genre = genre;
     }
 
     public Song(Set<Artist> artists) {
@@ -50,11 +65,11 @@ public class Song {
 
 
     public String getGenere() {
-        return genere;
+        return genre;
     }
 
     public void setGenere(String genere) {
-        this.genere = genere;
+        this.genre = genere;
     }
 
 
@@ -93,10 +108,9 @@ public class Song {
         return "Song{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", genere='" + genere + '\'' +
+                ", genre='" + genre + '\'' +
                 ", ismn='" + ismn + '\'' +
                 ", year='" + year + '\'' +
-                ", publisher='" + publisher + '\'' +
                 ", artists=" + artists +
                 '}';
     }

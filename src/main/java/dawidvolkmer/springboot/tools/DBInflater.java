@@ -21,9 +21,8 @@ public class DBInflater implements ApplicationListener<ContextRefreshedEvent> {
     private  SongRepository songRepository;
     private  ArtistRepository artistRepository;
 
-    public DBInflater(){
 
-    }
+
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) { initData(); }
 
